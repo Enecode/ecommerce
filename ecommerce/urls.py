@@ -21,6 +21,7 @@ admin.site.index_title = "Admin Account"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include("ecommerce_apps.urls", namespace="ecommerce_apps")),
     path('__debug__/', include('debug_toolbar.urls')),
-    path('', include("ecommerce_apps.urls", namespace="ecommerce_app"))
+
 ]
