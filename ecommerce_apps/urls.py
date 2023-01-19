@@ -1,10 +1,10 @@
 from django.urls import path
 from ecommerce_apps import views
 
-app_name = 'blog'
+app_name = 'ecommerce_apps'
 
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('category_detail/', views.category_detail, name="category_detail"),
-    path('product_list/', views.product_list, name="product_list"),
+    path('products', views.product_list),
+    path('products/<int:id>/', views.product_detail),
+    path('collections/<int:pk>/', views.collection_detail, name='collection_detail'),
 ]
