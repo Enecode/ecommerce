@@ -20,6 +20,7 @@ class InventoryFilter(admin.SimpleListFilter):
         if self.value() == '<10':
             return queryset.filter(inventory__lt=10)
 
+
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ['OrderItemInline']
@@ -52,7 +53,6 @@ class ProductAdmin(admin.ModelAdmin):
         ),
 
 
-
 @admin.register(models.Collection)
 class CollectionAdmin(admin.ModelAdmin):
     list_display = ['title', 'products_count']
@@ -70,7 +70,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         return super().get_queryset(request).annotate(
-            products_count=Count('product')
+            products_count=Count('products')
         )
 
 
